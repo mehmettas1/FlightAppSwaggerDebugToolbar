@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Third party apps: 
-    'rest_framework',
-    'drf_yasg',
+        'drf_yasg',
     # 'debug_toolbar',
     'users',
     'rest_framework',
