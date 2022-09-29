@@ -1,5 +1,4 @@
-from asyncore import write
-from wsgiref.validate import validator
+from django.conf import settings
 from rest_framework import serializers, validators
 from django.contrib.auth.models import User
 from django.contrib.auth.password_validation import validate_password
