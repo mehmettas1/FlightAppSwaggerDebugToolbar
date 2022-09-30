@@ -1,3 +1,4 @@
+from pickle import TRUE
 from rest_framework import serializers
 from .models import Flight, Passenger, Reservation
 
@@ -28,7 +29,7 @@ class ReservationSerializer(serializers.ModelSerializer):
     flight = serializers.StringRelatedField()     # default read_only=True
     flight_id = serializers.IntegerField(write_only=True)
     user = serializers.StringRelatedField()     # default read_only=True
-    user_id = serializers.IntegerField(write_only=True)
+    user_id = serializers.IntegerField(write_only=True, required=False)
     class Meta:
         model = Reservation
         fields = (
@@ -53,3 +54,9 @@ class ReservationSerializer(serializers.ModelSerializer):
             
         
         
+class StaffFlightSerializer(serializers.ModelSerializer):
+    
+    reservation = ReservationSerializer(many=True, read_only=True)
+    class Meta:
+        model = Flight
+        fields = "__all__"
